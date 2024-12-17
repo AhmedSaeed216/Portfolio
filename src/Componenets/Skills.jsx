@@ -1,68 +1,177 @@
-import React from 'react'
+// import React from 'react'
 
+// const Skills = () => {
+//   return (
+//     <>
+//     <div id='about' className='mt-5 flex justify-center flex-col items-center gap-8'>
+//         <h1 className='text-3xl  font-bold   '>What I do</h1>
+        
+//         {/* <p className=' align-bottom font-light font-sans text-balance'>I am skilled and passionate frontend  web designer
+//             with experienced in creating visually appealing  <br /> and user friendly websites.
+//              I have a strong understanding of design and kepp eye for detail. <br />
+//              I am proficient in HTML,CSS,Bootstrap,Tailwind,Javascript, React,Vite.
+//              <p>I'm a BSCS student at GCUL.</p>
+//               </p> */}
+//               <p className="align-bottom mx-20 font-light font-sans text-balance">
+//     I am a skilled and passionate frontend web designer with a talent for crafting visually stunning and user-friendly websites. 
+//     My expertise lies in creating seamless digital experiences, with a sharp eye for design and meticulous attention to detail. 
+//     I am proficient in HTML, CSS, Bootstrap, Tailwind, JavaScript, React, and Vite. 
+//      <br /> Currently, I am pursuing a BSCS degree at GCUL.
+// </p>
+
+//     </div>
+//     {/* images */}
+
+// {/* <hr className='mt-3 mx-3'/> */}
+//     <div id='skills'>
+
+//     <h1 className='flex   justify-center mt-10 font-bold text-3xl'>Web skills</h1>
+//     <div className='mt-10 grid grid-cols-2  md:grid-cols-3 sm:grid-cols-3 lg:grid-cols-3'>
+//         <Skill img="/html.png" des="HTML"/>
+//         <Skill img="/css-3.png" des="CSS"/>
+//         <Skill img="/bootstrap.png" des="Bootstrap"/>
+//         <Skill img="/tailwind.png" des="Tailwind"/>
+//         <Skill img="/java-script.png" des="javascript"/>
+//         <Skill img="/atom.png" des="React"/>
+//         <Skill  img="/firebase.png" des="Firebase"/>
+//         </div>
+
+//         <h1 className='flex justify-center mt-10 font-bold text-3xl'>Other skills</h1>
+        
+//         <div className='mt-10  grid grid-cols-3'>
+//         <Skill img="/ml.png" des="Machine Learning"/>
+//         <Skill img="/python.png" des="Python"/>
+//         {/* <Skill img="/css-3.png" des="CSS"/> */}
+        
+        
+        
+//     </div>
+//     </div>
+//     </>
+//   )
+// }
+
+// export default Skills
+
+// const Skill=({img,des})=>{
+//     return(
+//         <>
+        
+//         <div className='mt-4 cursor-pointer'>
+
+//     <img className='w-20' src={img}/>
+//     <h1 className='ml-3.5'>{des}</h1>
+//         </div>
+        
+//     </>
+//     )
+// }
+
+
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Main Skills Component
 const Skills = () => {
   return (
     <>
-    <div id='about' className='mt-5 flex justify-center flex-col items-center gap-8'>
-        <h1 className='text-3xl  font-bold   '>What I do</h1>
-        
-        {/* <p className=' align-bottom font-light font-sans text-balance'>I am skilled and passionate frontend  web designer
-            with experienced in creating visually appealing  <br /> and user friendly websites.
-             I have a strong understanding of design and kepp eye for detail. <br />
-             I am proficient in HTML,CSS,Bootstrap,Tailwind,Javascript, React,Vite.
-             <p>I'm a BSCS student at GCUL.</p>
-              </p> */}
-              <p className="align-bottom mx-6 font-light font-sans text-balance">
-    I am a skilled and passionate frontend web designer with a talent for crafting visually stunning and user-friendly websites. 
-    My expertise lies in creating seamless digital experiences, with a sharp eye for design and meticulous attention to detail. 
-    I am proficient in HTML, CSS, Bootstrap, Tailwind, JavaScript, React, and Vite. 
-     <br /> Currently, I am pursuing a BSCS degree at GCUL.
-</p>
+      {/* About Section */}
+      <div id="about" className="mt-5 flex justify-center flex-col items-center gap-8">
+        <h1 className="text-3xl font-bold">What I do</h1>
+        <p className="align-bottom mx-20 font-light font-sans text-balance">
+          I am a skilled and passionate frontend web designer with a talent for crafting visually stunning and user-friendly
+          websites. My expertise lies in creating seamless digital experiences, with a sharp eye for design and meticulous
+          attention to detail. I am proficient in HTML, CSS, Bootstrap, Tailwind, JavaScript, React, and Vite. <br />
+          Currently, I am pursuing a BSCS degree at GCUL.
+        </p>
+      </div>
 
-    </div>
-    {/* images */}
+      {/* Skills Section */}
+      <div id="skills" className="mt-10">
+        <h1 className="flex justify-center font-bold text-3xl">Web Skills</h1>
 
-{/* <hr className='mt-3 mx-3'/> */}
-    <div id='skills'>
-
-    <h1 className='flex   justify-center mt-10 font-bold text-3xl'>Web skills</h1>
-    <div className='mt-10 grid grid-cols-2  md:grid-cols-3 sm:grid-cols-3 lg:grid-cols-3'>
-        <Skill img="/html.png" des="HTML"/>
-        <Skill img="/css-3.png" des="CSS"/>
-        <Skill img="/bootstrap.png" des="Bootstrap"/>
-        <Skill img="/tailwind.png" des="Tailwind"/>
-        <Skill img="/java-script.png" des="javascript"/>
-        <Skill img="/atom.png" des="React"/>
-        <Skill  img="/firebase.png" des="Firebase"/>
+        {/* Web Skills Slider */}
+        <div className="mt-10">
+          <Swiper
+            slidesPerView={1} // Default to 1 card
+            spaceBetween={30}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2000 }}
+            breakpoints={{
+              640: { slidesPerView: 2 }, // Show 2 cards on small screens
+              768: { slidesPerView: 3 }, // Show 3 cards on medium screens
+              1024: { slidesPerView: 4 }, // Show 4 cards on large screens
+            }}
+            modules={[Navigation, Pagination, Autoplay]}
+            className="mySwiper"
+          >
+            {/* Skills as Slides */}
+            <SwiperSlide>
+              <Skill img="/html.png" des="HTML" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Skill img="/css-3.png" des="CSS" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Skill img="/bootstrap.png" des="Bootstrap" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Skill img="/tailwind.png" des="Tailwind" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Skill img="/java-script.png" des="JavaScript" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Skill img="/atom.png" des="React" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Skill img="/firebase.png" des="Firebase" />
+            </SwiperSlide>
+          </Swiper>
         </div>
 
-        <h1 className='flex justify-center mt-10 font-bold text-3xl'>Other skills</h1>
-        
-        <div className='mt-10  grid grid-cols-3'>
-        <Skill img="/ml.png" des="Machine Learning"/>
-        <Skill img="/python.png" des="Python"/>
-        {/* <Skill img="/css-3.png" des="CSS"/> */}
-        
-        
-        
-    </div>
-    </div>
-    </>
-  )
-}
-
-export default Skills
-
-const Skill=({img,des})=>{
-    return(
-        <>
-        
-        <div className='mt-4 cursor-pointer'>
-
-    <img className='w-20' src={img}/>
-    <h1 className='ml-3.5'>{des}</h1>
+        {/* Other Skills */}
+        <h1 className="flex justify-center mt-10 font-bold text-3xl">Other Skills</h1>
+        <div className="mt-10">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2500 }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              768: { slidesPerView: 3 },
+            }}
+            modules={[Navigation, Pagination, Autoplay]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <Skill img="/ml.png" des="Machine Learning" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Skill img="/python.png" des="Python" />
+            </SwiperSlide>
+          </Swiper>
         </div>
-        
+      </div>
     </>
-    )
-}
+  );
+};
+
+// Skill Card Component
+const Skill = ({ img, des }) => {
+  return (
+    <div className="flex flex-col items-center mt-4 cursor-pointer shadow-md p-4 rounded-lg bg-white">
+      <img className="w-20" src={img} alt={des} />
+      <h1 className="mt-2 font-medium text-lg text-gray-700">{des}</h1>
+    </div>
+  );
+};
+
+export default Skills;

@@ -3,17 +3,17 @@ import React from 'react'
 const About = () => {
     return (
         <div className='lg:flex lg:flex-row gap-20 ' id='home'>
-            <div className='left font-mediu font-sans mt-20 p-3 lg:relative    lg:bsolute top-56 left-20 '>
+            <div className='left font-mediu font-sans mt-0 p-3 lg:relative    lg:bsolute top-56 left-20 '>
 
                 {/* <br /> */}
-                <h1>Hello</h1>
+                <h1>Assalam o Alaikum</h1>
                 <span className='text-xl'>I'm</span>  <span className='text-yellow-400 text-2xl '>Ahmed Saeed</span>
                 <br />
                 <h1 className='font-bold text-3xl'>Frontend Web Developer </h1>
                 <p className='text-xl text-slate-300'>I am skilled and passionate frontend web develeoper  </p>
                 <div className='icons mt-4 flex  gap-3'>
-                    <Icon img="/linkedin.png" link="https://www.linkedin.com/in/ahmed-saeed-515117248"/>
-                    <Icon img="/github.png" link="https://github.com/ahmedsaeed216"/>
+                    <Icon className="hover:scale-150 transition-transform duration-300"  img="/linkedin.png" link="https://www.linkedin.com/in/ahmed-saeed-515117248"/>
+                    <Icon className="hover:scale-150 transition-transform duration-300"  img="/github.png" link="https://github.com/ahmedsaeed216"/>
                 </div>
             </div>
 
@@ -45,11 +45,11 @@ const About = () => {
 
 export default About
 
-const Icon=({img,link})=>{
+const Icon=({img,link,className})=>{
     return(
         <>
         <a href={link} target='blank'>
-        <img className='w-10' src={img} alt="" />
+        <img className={` ${className} w-10`} src={img} alt="" />
         </a>
         </>
     )

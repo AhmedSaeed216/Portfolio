@@ -13,16 +13,16 @@ function App() {
     {/* Portfolio */}
 
     <Navbar/>
-    <hr  />
+    <hr  className='w-full' />
     <About/>
-    <hr  className='mx-3'/>
+    <hr  className=' w-2/3 flex m-auto'/>
     <Skills/>
-    <hr className=' mx-3'/>
+    <hr className='  w-2/3 flex m-auto mt-4'/>
     <Project/>
-    <hr className=' mx-3'/>
+    <hr className=' mb-7 w-2/3 flex m-auto'/>
     {/* <Contact/> */}
     <Contactsend/>
-    <hr className=' mx-3'/>
+    <hr className=' mt-4 w-full flex m-auto'/>
     <Footer/>
     </>
   )

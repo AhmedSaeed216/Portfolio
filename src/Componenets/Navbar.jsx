@@ -34,11 +34,11 @@ const Navbar = () => {
                     {/* 2nd sec */}
                     <div >
                         <ul className='flex flex-row gap-5 ' >
-                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-105  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#home">Home</a></li>
-                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-105  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#about">About</a></li>
-                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-105  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#skills">Skills</a></li>
-                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-105  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#contact">Contact me</a></li>
-                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-105  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#project">Projecrs</a></li>
+                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-125  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#home">Home</a></li>
+                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-125  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#about">About</a></li>
+                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-125  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#skills">Skills</a></li>
+                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-125  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#contact">Contact me</a></li>
+                        <li className='text-white hover:underline active:underline cursor-pointer transition-transform  transform  hover:scale-125  hover:shadow-[0_6px_10px_rgba(255,215,0,0.8)] duration-300  ease-in-out '><a href="#project">Projecrs</a></li>
                         </ul>
                     </div>
 
