@@ -175,8 +175,8 @@ const Pro = ({ img, link, title, des }) => {
           ease-in-out
           ml-3"
       >
-        <img className="w-96" src={img} alt={title} />
-        <h1 className="flex justify-center font-bold text-xl mt-2">{title}</h1>
+        <img className="w-3/4 border border-black rounded-xl " src={img} alt={title} />
+        <h1 className="flex ml-40  font-bold text-xl mt-2">{title}</h1>
         <p className="m-2 text-balance font-light">{des}</p>
       </a>
     </>
