@@ -22,7 +22,7 @@ const Contact = () => {
     };
 
     return (
-        <div id='contact' className='flex justify-center items-center min-h-screen bg-black bg-opacity-50'>
+        <div id='contact' className='flex justify-center items-center min-h-64 bg-black bg-opacity-50'>
             <div className='w-full max-w-md p-8 bg-black border-4   bg-opacity-100 rounded-lg shadow-lg backdrop-blur-md'>
                 <h1 className='font-bold text-3xl text-center mb-6'>Contact Me</h1>
                 {isSubmitting && <div>Sending...</div>}
