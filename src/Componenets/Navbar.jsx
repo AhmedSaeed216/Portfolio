@@ -44,7 +44,7 @@ const Navbar = () => {
 
                     <div>
 
-                        <a href='/AhmedCV.pdf' download="AhmedCV.pdf">
+                        <a href='/AhmedCV.pdf' download="AhmedCVNew">
                             <button className='bg-white text-black font-xl font-bold rounded-lg w-28 h-11  hover:bg-black hover:text-white border-white '>
                                 Download CV
                                {/* <AnimatedSubscribeButtonDemo/>  */}
