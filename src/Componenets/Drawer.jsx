@@ -9,8 +9,8 @@ const Drawer = ({ isopen, toggleDrawer }) => {
                         <li className='text-black hover:underline active:underline cursor-pointer'><a href="#home">Home</a></li>
                         <li className='text-black hover:underline active:underline cursor-pointer'><a href="#about">About</a></li>
                         <li className='text-black hover:underline active:underline cursor-pointer'><a href="#skills">Skills</a></li>
+                       <li className='text-black hover:underline active:underline cursor-pointer'><a href="#Project">Projects</a></li>
                         <li className='text-black hover:underline active:underline cursor-pointer'><a href="#contact">Contact me</a></li>
-                        <li className='text-black hover:underline active:underline cursor-pointer'><a href="#project">Projects</a></li>
                         <li>
                             <a href='/AhmedCVNew.pdf' download="AhmedCV">
                                 <button className='text-black hover:underline active:underline cursor-pointer ' >Download CV</button>
