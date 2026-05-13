@@ -6,28 +6,20 @@ export default {
   ],
   theme: {
     extend: {
-      boxShadow: {
-        'golden-light': '0 4px 6px rgba(255, 215, 0, 0.6)',
-        'golden-dark': '0 6px 10px rgba(255, 215, 0, 0.8)',
+      colors: {
+        darkBg: '#0a0a0b',
+        neonBlue: '#00f2fe',
+        neonPurple: '#4facfe',
       },
+      boxShadow: {
+        'glow-blue': '0 0 20px rgba(0, 242, 254, 0.4)',
+        'glow-purple': '0 0 20px rgba(79, 172, 254, 0.4)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-gradient': 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)',
+      }
     },
   },
   plugins: [],
 }
-
-// tailwind.config.js
-// module.exports = {
-//   theme: {
-//     extend: {
-//       colors: {
-//         golden: {
-//           500: '#FFD700', // Golden color
-//         },
-//       },
-//       boxShadow: {
-//         'golden': '0 4px 6px rgba(255, 215, 0, 0.5)',
-//       },
-//     },
-//   },
-//   plugins: [],
-// }
