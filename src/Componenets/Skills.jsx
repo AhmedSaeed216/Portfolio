@@ -82,7 +82,7 @@ const Skills = () => {
             className="mySwiper !pb-12"
           >
             <SwiperSlide><Skill img="/python.png" des="Python" /></SwiperSlide>
-            <SwiperSlide><Skill img="/python.png" des="Django" /></SwiperSlide>
+            <SwiperSlide><Skill img="/django.png" des="Django" /></SwiperSlide>
             <SwiperSlide><Skill img="/firebase.png" des="Firebase" /></SwiperSlide>
             <SwiperSlide><Skill img="/sql.png" des="PostgreSQL/SQL" /></SwiperSlide>
           </Swiper>
