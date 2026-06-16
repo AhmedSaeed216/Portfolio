@@ -33,8 +33,8 @@ function Contactsend() {
   };
 
   return (
-    <section id="contact" className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full py-20 overflow-hidden">
-      <motion.div 
+    <section id="contact" className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full py-2 overflow-hidden">
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -45,7 +45,7 @@ function Contactsend() {
         <h1 className="text-3xl md:text-5xl font-bold text-white mt-4">Contact Me</h1>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -56,42 +56,42 @@ function Contactsend() {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-neonPurple/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 -z-10"></div>
 
         {successMessage && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center p-4 mb-6 rounded-lg bg-green-500/20 border border-green-500/50 text-green-300 font-medium z-20 relative">
-                {successMessage}
-            </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center p-4 mb-6 rounded-lg bg-green-500/20 border border-green-500/50 text-green-300 font-medium z-20 relative">
+            {successMessage}
+          </motion.div>
         )}
 
         <form onSubmit={onSubmit} className="flex flex-col gap-6 relative z-10 text-white">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-1 relative">
-                <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    required
-                    className="w-full bg-darkBg/50 border border-white/10 text-white p-4 pl-12 rounded-xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all text-sm sm:text-base"
-                />
+              <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                className="w-full bg-darkBg/50 border border-white/10 text-white p-4 pl-12 rounded-xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all text-sm sm:text-base"
+              />
             </div>
             <div className="flex-1 relative">
-                <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    required
-                    className="w-full bg-darkBg/50 border border-white/10 text-white p-4 pl-12 rounded-xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all text-sm sm:text-base"
-                />
+              <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                className="w-full bg-darkBg/50 border border-white/10 text-white p-4 pl-12 rounded-xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all text-sm sm:text-base"
+              />
             </div>
           </div>
           <div className="relative">
-             <MessageSquare className="absolute left-4 top-5 text-slate-400" size={20} />
-             <textarea
-                name="message"
-                placeholder="What do you want to talk about?"
-                required
-                className="w-full bg-darkBg/50 border border-white/10 text-white p-4 pl-12 rounded-xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all h-32 md:h-40 resize-none text-sm sm:text-base"
-             />
+            <MessageSquare className="absolute left-4 top-5 text-slate-400" size={20} />
+            <textarea
+              name="message"
+              placeholder="What do you want to talk about?"
+              required
+              className="w-full bg-darkBg/50 border border-white/10 text-white p-4 pl-12 rounded-xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all h-32 md:h-40 resize-none text-sm sm:text-base"
+            />
           </div>
           <motion.button
             whileHover={{ scale: 1.02 }}

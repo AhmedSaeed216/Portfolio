@@ -51,7 +51,7 @@ const Skills = () => {
             <SwiperSlide><Skill img="/html.png" des="HTML" /></SwiperSlide>
             <SwiperSlide><Skill img="/css-3.png" des="CSS" /></SwiperSlide>
             <SwiperSlide><Skill img="/java-script.png" des="JavaScript" /></SwiperSlide>
-            <SwiperSlide><Skill img="/java-script.png" des="TypeScript" /></SwiperSlide>
+            <SwiperSlide><Skill img="/typescript.jfif" des="TypeScript" /></SwiperSlide>
             <SwiperSlide><Skill img="/atom.png" des="React" /></SwiperSlide>
             <SwiperSlide><Skill img="/bootstrap.png" des="Bootstrap" /></SwiperSlide>
             <SwiperSlide><Skill img="/tailwind.png" des="Tailwind" /></SwiperSlide>
@@ -77,14 +77,17 @@ const Skills = () => {
             breakpoints={{
               640: { slidesPerView: 3, spaceBetween: 30 },
               768: { slidesPerView: 4, spaceBetween: 30 },
+              1024: { slidesPerView: 5, spaceBetween: 40 },
             }}
             modules={[Pagination, Autoplay]}
             className="mySwiper !pb-12"
           >
             <SwiperSlide><Skill img="/python.png" des="Python" /></SwiperSlide>
             <SwiperSlide><Skill img="/django.png" des="Django" /></SwiperSlide>
-            <SwiperSlide><Skill img="/firebase.png" des="Firebase" /></SwiperSlide>
+            <SwiperSlide><Skill img="/drf.png" des="DRF" /></SwiperSlide>
+            <SwiperSlide><Skill img="/MVT.png" des="MVT" /></SwiperSlide>
             <SwiperSlide><Skill img="/sql.png" des="PostgreSQL/SQL" /></SwiperSlide>
+            <SwiperSlide><Skill img="/firebase.png" des="Firebase" /></SwiperSlide>
           </Swiper>
         </motion.div>
       </div>
@@ -106,13 +109,18 @@ const Skills = () => {
             breakpoints={{
               640: { slidesPerView: 3, spaceBetween: 30 },
               768: { slidesPerView: 4, spaceBetween: 40 },
+              1024: { slidesPerView: 5, spaceBetween: 40 },
             }}
             modules={[Pagination, Autoplay]}
             className="mySwiper !pb-12"
           >
             <SwiperSlide><Skill img="/github.png" des="Git & GitHub" /></SwiperSlide>
             <SwiperSlide><Skill img="/ml.png" des="Machine Learning" /></SwiperSlide>
-            <SwiperSlide><Skill img="/ml.png" des="Deep Learning" /></SwiperSlide>
+            <SwiperSlide><Skill img="/deeplearning.jfif" des="Deep Learning" /></SwiperSlide>
+            <SwiperSlide><Skill img="/imageProcessing.jfif" des="Image Processing" /></SwiperSlide>
+            <SwiperSlide><Skill img="/tensorflow.png" des="TensorFlow" /></SwiperSlide>
+            <SwiperSlide><Skill img="/keras.png" des="Keras" /></SwiperSlide>
+            <SwiperSlide><Skill img="/pandas.png" des="Pandas" /></SwiperSlide>
           </Swiper>
         </motion.div>
       </div>

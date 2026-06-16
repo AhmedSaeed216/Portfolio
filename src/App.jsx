@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="bg-darkBg min-h-screen text-slate-300 font-sans selection:bg-neonBlue selection:text-black overflow-x-hidden w-full">
       <Navbar />
-      <main className="pt-28 flex flex-col gap-20 md:gap-32 pb-16 w-full items-center">
+      <main className="pt-5 flex flex-col gap-20 md:gap-32 pb-16 w-full items-center">
         <About />
         <Skills />
         <Project />

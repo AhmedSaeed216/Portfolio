@@ -15,7 +15,7 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div className="text-center text-sm">
-          <p className="hover:text-neonBlue transition-colors"><a href="mailto:ahmed.saeed6402@gmail.com">ahmed.saeed6402@gmail.com</a></p>
+          <p className="hover:text-neonBlue transition-colors"><a href="mailto:ahmed.saeed6420@gmail.com">ahmed.saeed6420@gmail.com</a></p>
           <p className="mt-1">0328 1132442</p>
         </div>
 
