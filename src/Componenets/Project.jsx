@@ -13,7 +13,7 @@ const Project = () => {
     { img: "/melo.png", link: "https://melo.codexenix.com/", title: "Melo - Task Management", des: "Developed the complete frontend and backend architecture independently. Built task management workflows including boards and tasks." },
     { img: "/fyp.jpeg", link: "", title: "TB & Pneumonia Detection", des: "Training a model in FYP to detect Tuberculosis (TB) in the segmented lungs and define the severity of TB,  Type of TB and percentage of lungs damage. In this we trained different segmentation adn classification models and also add the embedding for verification of the chest xray and rotated images." },
     { img: "/News.jpeg", link: "https://brilliant-raindrop-d410b5.netlify.app", title: "News App (BBC Clone)", des: "A news app that provides news across topics using an API (BBC Clone)." },
-    // { img: "/pro1.png", link: "https://gymcfitclub.netlify.app", title: "Gym Website", des: "In this website I have used a lot of animations, Email API, and also it is responsive." },
+    { img: "/pro1.png", link: "https://gymcfitclub.netlify.app", title: "Gym Website", des: "In this website I have used a lot of animations, Email API, and also it is responsive." },
     // { img: "/pro2.png", link: "https://contactstorage.netlify.app", title: "Contact Saving App", des: "This app has back-end Firebase integration that stores the data and is also responsive." },
     // { img: "/todo.jpeg", link: "https://dailyitasks.netlify.app", title: "Todo App", des: "This is a simple todo app to make a schedule. It keeps data in Chrome memory." },
     // { img: "/weather.jpeg", link: "https://anycityweatherupdate.netlify.app", title: "Weather App", des: "A weather app that tells the weather of different cities via longitude and latitude." },
