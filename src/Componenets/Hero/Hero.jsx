@@ -9,7 +9,7 @@ const Hero = () => {
             <div id="home" className="pt-16 md:pt-18" />
             <section className="min-h-[90vh] flex items-center py-16 md:py-24 overflow-hidden" aria-label="Hero">
                 <div className="section-container">
-                    <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
+                    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                         {/* Left Content */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
