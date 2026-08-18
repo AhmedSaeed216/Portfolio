@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Mail } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from './Icons'
+import { GithubIcon, LinkedinIcon } from '../Contact/Icons'
 import TechOrbit from './TechOrbit'
 
 const Hero = () => {
