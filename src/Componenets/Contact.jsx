@@ -1,101 +1,176 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
-import { Send, User, Mail, MessageSquare } from 'lucide-react';
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Send, User, Mail, MessageSquare } from 'lucide-react'
+import { GithubIcon, LinkedinIcon } from './Icons'
 
 const Contact = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors, isSubmitting }
-    } = useForm();
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [successMessage, setSuccessMessage] = useState(null)
 
-    const onSubmit = async (data) => {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        console.log(data);
-        alert("Message sent successfully!");
-    };
+    const onSubmit = async (event) => {
+        event.preventDefault()
+        setIsSubmitting(true)
+        const formData = new FormData(event.target)
+        formData.append('access_key', 'aac9be13-003b-4a30-8d9a-d3b31a743d27')
+
+        const object = Object.fromEntries(formData)
+        const json = JSON.stringify(object)
+
+        const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body: json,
+        }).then((res) => res.json())
+
+        setIsSubmitting(false)
+        if (res.success) {
+            setSuccessMessage('Message sent successfully!')
+            event.target.reset()
+        } else {
+            setSuccessMessage('Failed to send message. Try again later.')
+        }
+
+        setTimeout(() => setSuccessMessage(null), 5000)
+    }
 
     return (
-        <section id='contact' className='px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto'>
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className='text-center mb-12'
-            >
-                <h2 className="text-neonBlue tracking-widest uppercase font-medium text-sm">Get In Touch</h2>
-                <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-hero-gradient mt-2">Contact Me</h1>
-            </motion.div>
-
-            <div className='flex flex-col lg:flex-row gap-12 items-start justify-center'>
-                {/* Contact Info (Optional) or just the form */}
+        <section id="contact" className="py-20 md:py-28" aria-label="Contact">
+            <div className="section-container">
+                {/* CTA Header */}
                 <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className='w-full max-w-xl bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md shadow-2xl relative overflow-hidden group'
+                    transition={{ duration: 0.5 }}
+                    className="mb-12 text-left"
                 >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue opacity-50"></div>
+                    <p className="section-label">Get In Touch</p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        Let's Build Something
+                    </h2>
+                    <p className="section-subtitle">
+                        I'm open to opportunities where I can build meaningful products and solve challenging engineering problems.
+                    </p>
+                </motion.div>
 
-                    <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
-                        <div className='relative group'>
-                            <User className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-neonBlue transition-colors' size={20} />
-                            <input
-                                type="text"
-                                placeholder='Your Name'
-                                {...register("Name", { required: "Name is required" })}
-                                className='w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 text-white transition-all'
-                            />
-                            {errors.Name && <span className='text-red-400 text-sm mt-1 ml-2'>{errors.Name.message}</span>}
-                        </div>
-
-                        <div className='relative group'>
-                            <Mail className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-neonBlue transition-colors' size={20} />
-                            <input
-                                type="email"
-                                placeholder='Your Email'
-                                {...register("email", {
-                                    required: "Email is required",
-                                    pattern: { value: /^\S+@\S+$/i, message: "Invalid email" }
-                                })}
-                                className='w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 text-white transition-all'
-                            />
-                            {errors.email && <span className='text-red-400 text-sm mt-1 ml-2'>{errors.email.message}</span>}
-                        </div>
-
-                        <div className='relative group'>
-                            <MessageSquare className='absolute left-4 top-6 text-gray-400 group-focus-within:text-neonBlue transition-colors' size={20} />
-                            <textarea
-                                placeholder='Your Message'
-                                {...register("message", { required: "Message cannot be empty" })}
-                                className='w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 text-white min-h-[150px] resize-none transition-all'
-                            />
-                            {errors.message && <span className='text-red-400 text-sm mt-1 ml-2'>{errors.message.message}</span>}
-                        </div>
-
-                        <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            type="submit"
-                            disabled={isSubmitting}
-                            className='w-full py-4 bg-hero-gradient text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:shadow-glow-blue transition-all disabled:opacity-50 disabled:cursor-not-allowed'
+                {/* Quick links */}
+                <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12"
+                >
+                        <a
+                            href="mailto:ahmed.saeed6420@gmail.com"
+                            className="btn-primary flex items-center justify-center gap-2"
                         >
-                            {isSubmitting ? (
-                                <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                            ) : (
-                                <>
-                                    Send Message <Send size={20} />
-                                </>
-                            )}
-                        </motion.button>
-                    </form>
+                            <Mail size={16} />
+                            Email Me
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/ahmed-saeed-515117248"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn-secondary flex items-center justify-center gap-2"
+                        >
+                            <LinkedinIcon size={16} />
+                            LinkedIn
+                        </a>
+                        <a
+                            href="https://github.com/ahmedsaeed216"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn-secondary flex items-center justify-center gap-2"
+                        >
+                            <GithubIcon size={16} />
+                            GitHub
+                        </a>
+                    </motion.div>
+
+                {/* Contact Form */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="max-w-2xl mx-auto"
+                >
+                    <div className="card p-6 md:p-8">
+                        <h3 className="text-lg font-semibold text-white mb-6">Send a Message</h3>
+
+                        {successMessage && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className={`text-center p-3 mb-6 rounded-xl text-sm font-medium ${
+                                    successMessage.includes('successfully')
+                                        ? 'bg-green-500/10 border border-green-500/20 text-green-400'
+                                        : 'bg-red-500/10 border border-red-500/20 text-red-400'
+                                }`}
+                            >
+                                {successMessage}
+                            </motion.div>
+                        )}
+
+                        <form onSubmit={onSubmit} className="flex flex-col gap-4">
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <div className="flex-1 relative">
+                                    <User className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-500" size={16} />
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        placeholder="Your Name"
+                                        required
+                                        className="w-full bg-surface-900/80 border border-white/8 text-white text-sm p-3.5 pl-10 rounded-xl focus:outline-none focus:border-accent-500/50 focus:ring-1 focus:ring-accent-500/20 transition-all placeholder:text-slate-600"
+                                    />
+                                </div>
+                                <div className="flex-1 relative">
+                                    <Mail className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-500" size={16} />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Your Email"
+                                        required
+                                        className="w-full bg-surface-900/80 border border-white/8 text-white text-sm p-3.5 pl-10 rounded-xl focus:outline-none focus:border-accent-500/50 focus:ring-1 focus:ring-accent-500/20 transition-all placeholder:text-slate-600"
+                                    />
+                                </div>
+                            </div>
+                            <div className="relative">
+                                <MessageSquare className="absolute left-3.5 top-4 text-slate-500" size={16} />
+                                <textarea
+                                    name="message"
+                                    placeholder="What do you want to talk about?"
+                                    required
+                                    className="w-full bg-surface-900/80 border border-white/8 text-white text-sm p-3.5 pl-10 rounded-xl focus:outline-none focus:border-accent-500/50 focus:ring-1 focus:ring-accent-500/20 transition-all h-32 resize-none placeholder:text-slate-600"
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="btn-primary self-end disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {isSubmitting ? (
+                                    <span className="flex items-center gap-2">
+                                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                        Sending...
+                                    </span>
+                                ) : (
+                                    <>
+                                        Send Message
+                                        <Send size={14} />
+                                    </>
+                                )}
+                            </button>
+                        </form>
+                    </div>
                 </motion.div>
             </div>
         </section>
-    );
-};
+    )
+}
 
-export default Contact;
+export default Contact

@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Drawer from './Drawer'
-import Hamburger from 'hamburger-react'
+import { Menu } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const Navbar = () => {
     const [isopen, setisopen] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20)
+        }
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     const toggleDrawer = () => {
         setisopen(!isopen)
@@ -12,9 +21,10 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Home', href: '#home' },
+        { name: 'Work', href: '#work' },
         { name: 'About', href: '#about' },
         { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#project' },
+        { name: 'Experience', href: '#experience' },
         { name: 'Contact', href: '#contact' }
     ]
 
@@ -23,48 +33,53 @@ const Navbar = () => {
             <motion.header
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                transition={{ type: "spring", stiffness: 100 }}
-                className="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-white/10"
+                transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
+                    ? 'bg-surface-900/90 backdrop-blur-xl border-b border-white/8 shadow-subtle'
+                    : 'bg-transparent'
+                    }`}
             >
-                <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-20">
+                <div className="w-full max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+                    <div className="flex justify-between items-center h-16 md:h-18">
                         {/* Logo */}
-                        <div className="flex-shrink-0 flex items-center">
-                            <span className="text-3xl font-bold bg-clip-text text-transparent bg-hero-gradient">
-                                Port<span className="text-white">folio</span>
+                        <a href="#home" className="flex-shrink-0 flex items-center group">
+                            <span className="text-lg font-bold text-white tracking-tight">
+                                Ahmed
+                                <span className="text-accent-400"> </span>
+                                Saeed
                             </span>
-                        </div>
+                        </a>
 
                         {/* Desktop Menu */}
-                        <nav className="hidden md:flex space-x-8">
+                        <nav className="hidden md:flex items-center gap-1">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    className="text-gray-300 hover:text-neonBlue transition-colors duration-300 text-lg font-medium relative group"
+                                    className="text-slate-400 hover:text-white transition-colors duration-200 text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/5"
                                 >
                                     {link.name}
-                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neonBlue transition-all duration-300 group-hover:w-full glow-blue"></span>
                                 </a>
                             ))}
                         </nav>
 
-                        {/* Desktop Button */}
+                        {/* Desktop Resume Button */}
                         <div className="hidden md:flex items-center">
-                            <a href='/NewCv.pdf' download="AhmedCV">
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="px-6 py-2 rounded-full border border-neonPurple text-neonPurple hover:bg-neonPurple hover:text-white transition-all duration-300 shadow-glow-purple"
-                                >
-                                    Download CV
-                                </motion.button>
+                            <a href='/NewCv.pdf' download="Ahmed_Saeed_Resume">
+                                <button className="px-5 py-2 text-sm font-medium rounded-lg border border-accent-500/30 text-accent-400 hover:bg-accent-500/10 hover:border-accent-500/50 transition-all duration-200">
+                                    Resume
+                                </button>
                             </a>
                         </div>
 
-                        {/* Mobile Menu Button */}
-                        <div className="md:hidden flex items-center text-white">
-                            <Hamburger toggled={isopen} toggle={toggleDrawer} color="#00f2fe" />
+                        <div className="md:hidden flex items-center">
+                            <button
+                                onClick={toggleDrawer}
+                                className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                                aria-label="Toggle menu"
+                            >
+                                <Menu size={22} />
+                            </button>
                         </div>
                     </div>
                 </div>

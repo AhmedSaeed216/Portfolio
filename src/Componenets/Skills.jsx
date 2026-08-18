@@ -1,142 +1,94 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { motion } from 'framer-motion';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { motion } from 'framer-motion'
+import { Code2, Server, Database, Radio } from 'lucide-react'
+
+const skillCategories = [
+    {
+        icon: Code2,
+        title: 'Frontend',
+        skills: ['React.js', 'TypeScript', 'JavaScript', 'Redux Toolkit', 'Zustand', 'TanStack Query', 'Tailwind CSS', 'Material UI'],
+    },
+    {
+        icon: Server,
+        title: 'Backend',
+        skills: ['Python', 'Django', 'Django REST Framework', 'REST APIs', 'JWT Authentication'],
+    },
+    {
+        icon: Database,
+        title: 'Database & Infrastructure',
+        skills: ['PostgreSQL', 'SQLite', 'Redis', 'Celery', 'Docker'],
+    },
+    {
+        icon: Radio,
+        title: 'Real-Time & Integrations',
+        skills: ['WebSockets', 'Django Channels', 'Firebase Cloud Messaging', 'Agora', 'Google Maps API'],
+    },
+]
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: (i) => ({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.35, delay: i * 0.1, ease: 'easeOut' },
+    }),
+}
 
 const Skills = () => {
-  return (
-    <section id="skills" className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-      {/* Intro Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="text-center space-y-6"
-      >
-        <h2 className="text-neonPurple tracking-widest uppercase font-medium text-sm">My Expertise</h2>
-        <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-hero-gradient">What I Do</h1>
-        <p className="text-slate-400 max-w-3xl mx-auto leading-relaxed text-lg">
-          Frontend and Django Developer with experience in building scalable web applications.
-          Currently, I am working as a React and Django developer at <a href='https://codexenix.com' target='_blank' className='text-lime-400 hover:underline'> Codexenix </a> .
-        </p>
-      </motion.div>
+    return (
+        <section id="skills" className="py-16 md:py-16" aria-label="Skills">
+            <div className="section-container">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-14"
+                >
+                    <p className="section-label">Skills</p>
+                    <h2 className="section-title">Technologies I Work With</h2>
+                    <p className="section-subtitle">
+                        Tools and technologies I use to build production applications.
+                    </p>
+                </motion.div>
 
-      {/* Frontend Skills Section */}
-      <div className="mt-20">
-        <h3 className="text-2xl font-semibold text-white mb-8 border-b border-white/10 pb-4 inline-block">Frontend Technologies</h3>
+                {/* Skills Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+                    {skillCategories.map((category, index) => (
+                        <motion.div
+                            key={category.title}
+                            custom={index}
+                            variants={cardVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            className="card p-6"
+                        >
+                            {/* Category header */}
+                            <div className="flex items-center gap-3 mb-5">
+                                <div className="w-9 h-9 rounded-lg bg-accent-500/10 flex items-center justify-center">
+                                    <category.icon size={18} className="text-accent-400" />
+                                </div>
+                                <h3 className="text-base font-semibold text-white">{category.title}</h3>
+                            </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <Swiper
-            slidesPerView={2}
-            spaceBetween={20}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 2000, disableOnInteraction: false }}
-            breakpoints={{
-              640: { slidesPerView: 3, spaceBetween: 30 },
-              768: { slidesPerView: 4, spaceBetween: 30 },
-              1024: { slidesPerView: 5, spaceBetween: 40 },
-            }}
-            modules={[Pagination, Autoplay]}
-            className="mySwiper !pb-12"
-          >
-            <SwiperSlide><Skill img="/html.png" des="HTML" /></SwiperSlide>
-            <SwiperSlide><Skill img="/css-3.png" des="CSS" /></SwiperSlide>
-            <SwiperSlide><Skill img="/java-script.png" des="JavaScript" /></SwiperSlide>
-            <SwiperSlide><Skill img="/typescript.jfif" des="TypeScript" /></SwiperSlide>
-            <SwiperSlide><Skill img="/atom.png" des="React" /></SwiperSlide>
-            <SwiperSlide><Skill img="/bootstrap.png" des="Bootstrap" /></SwiperSlide>
-            <SwiperSlide><Skill img="/tailwind.png" des="Tailwind" /></SwiperSlide>
-          </Swiper>
-        </motion.div>
-      </div>
+                            {/* Skills */}
+                            <div className="flex flex-wrap gap-2">
+                                {category.skills.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg bg-white/4 text-slate-300 border border-white/8 hover:border-white/15 hover:bg-white/6 transition-all duration-200"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}
 
-      {/* Backend Skills Section */}
-      <div className="mt-12">
-        <h3 className="text-2xl font-semibold text-white mb-8 border-b border-white/10 pb-4 inline-block">Backend Technologies</h3>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.1 }}
-        >
-          <Swiper
-            slidesPerView={2}
-            spaceBetween={20}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 2200, disableOnInteraction: false }}
-            breakpoints={{
-              640: { slidesPerView: 3, spaceBetween: 30 },
-              768: { slidesPerView: 4, spaceBetween: 30 },
-              1024: { slidesPerView: 5, spaceBetween: 40 },
-            }}
-            modules={[Pagination, Autoplay]}
-            className="mySwiper !pb-12"
-          >
-            <SwiperSlide><Skill img="/python.png" des="Python" /></SwiperSlide>
-            <SwiperSlide><Skill img="/django.png" des="Django" /></SwiperSlide>
-            <SwiperSlide><Skill img="/drf.png" des="DRF" /></SwiperSlide>
-            <SwiperSlide><Skill img="/MVT.png" des="MVT" /></SwiperSlide>
-            <SwiperSlide><Skill img="/sql.png" des="PostgreSQL/SQL" /></SwiperSlide>
-            <SwiperSlide><Skill img="/firebase.png" des="Firebase" /></SwiperSlide>
-          </Swiper>
-        </motion.div>
-      </div>
-
-      {/* Other Skills Section */}
-      <div className="mt-12">
-        <h3 className="text-2xl font-semibold text-white mb-8 border-b border-white/10 pb-4 inline-block">Other Skills</h3>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          <Swiper
-            slidesPerView={2}
-            spaceBetween={20}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
-            breakpoints={{
-              640: { slidesPerView: 3, spaceBetween: 30 },
-              768: { slidesPerView: 4, spaceBetween: 40 },
-              1024: { slidesPerView: 5, spaceBetween: 40 },
-            }}
-            modules={[Pagination, Autoplay]}
-            className="mySwiper !pb-12"
-          >
-            <SwiperSlide><Skill img="/github.png" des="Git & GitHub" /></SwiperSlide>
-            <SwiperSlide><Skill img="/ml.png" des="Machine Learning" /></SwiperSlide>
-            <SwiperSlide><Skill img="/deeplearning.jfif" des="Deep Learning" /></SwiperSlide>
-            <SwiperSlide><Skill img="/imageProcessing.jfif" des="Image Processing" /></SwiperSlide>
-            <SwiperSlide><Skill img="/tensorflow.png" des="TensorFlow" /></SwiperSlide>
-            <SwiperSlide><Skill img="/keras.png" des="Keras" /></SwiperSlide>
-            <SwiperSlide><Skill img="/pandas.png" des="Pandas" /></SwiperSlide>
-          </Swiper>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const Skill = ({ img, des }) => {
-  return (
-    <div className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-neonBlue hover:bg-white/10 transition-all duration-300 cursor-pointer shadow-none hover:shadow-glow-blue">
-      <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center overflow-hidden mb-4 transform group-hover:scale-110 transition-transform duration-300">
-        <img className="object-contain w-full h-full filter brightness-90 group-hover:brightness-110 transition-all" src={img} alt={des} />
-      </div>
-      <h1 className="font-medium text-base sm:text-lg text-slate-300 group-hover:text-neonBlue transition-colors">{des}</h1>
-    </div>
-  );
-};
-
-export default Skills;
+export default Skills

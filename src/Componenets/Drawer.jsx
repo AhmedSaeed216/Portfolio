@@ -1,15 +1,15 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Download } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion'
+import { X, Download } from 'lucide-react'
 
 const Drawer = ({ isopen, toggleDrawer }) => {
     const navLinks = [
         { name: 'Home', href: '#home' },
+        { name: 'Work', href: '#work' },
         { name: 'About', href: '#about' },
         { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#project' },
+        { name: 'Experience', href: '#experience' },
         { name: 'Contact', href: '#contact' }
-    ];
+    ]
 
     return (
         <AnimatePresence>
@@ -30,40 +30,37 @@ const Drawer = ({ isopen, toggleDrawer }) => {
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                        className="fixed top-0 right-0 h-full w-[280px] bg-darkBg/95 backdrop-blur-xl border-l border-white/10 z-[100] md:hidden shadow-2xl"
+                        className="fixed top-0 right-0 h-full w-[280px] bg-surface-900/98 backdrop-blur-xl border-l border-white/8 z-[100] md:hidden"
                     >
-                        <div className="flex flex-col h-full p-8 pt-24 relative">
+                        <div className="flex flex-col h-full p-8 pt-20 relative">
                             {/* Close Button */}
                             <button
                                 onClick={toggleDrawer}
-                                className="absolute top-6 right-6 text-gray-400 hover:text-neonBlue transition-colors"
+                                className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+                                aria-label="Close menu"
                             >
-                                <X size={32} />
+                                <X size={24} />
                             </button>
 
-                            <nav className="flex flex-col gap-8">
+                            <nav className="flex flex-col gap-2">
                                 {navLinks.map((link) => (
-                                    <motion.a
+                                    <a
                                         key={link.name}
                                         href={link.href}
                                         onClick={toggleDrawer}
-                                        whileHover={{ x: 10 }}
-                                        className="text-2xl font-semibold text-gray-300 hover:text-neonBlue transition-colors flex items-center"
+                                        className="text-lg font-medium text-slate-300 hover:text-white px-4 py-3 rounded-xl hover:bg-white/5 transition-all duration-200"
                                     >
                                         {link.name}
-                                    </motion.a>
+                                    </a>
                                 ))}
                             </nav>
 
-                            <div className="mt-auto pb-10">
-                                <a href='/NewCv.pdf' download="AhmedCV">
-                                    <motion.button
-                                        whileTap={{ scale: 0.95 }}
-                                        className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-hero-gradient text-white font-bold shadow-glow-blue"
-                                    >
-                                        <Download size={20} />
-                                        Download CV
-                                    </motion.button>
+                            <div className="mt-auto pb-8">
+                                <a href='/NewCv.pdf' download="Ahmed_Saeed_Resume">
+                                    <button className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent-500 text-white font-medium text-sm hover:bg-accent-600 transition-colors">
+                                        <Download size={18} />
+                                        Download Resume
+                                    </button>
                                 </a>
                             </div>
                         </div>
@@ -71,7 +68,7 @@ const Drawer = ({ isopen, toggleDrawer }) => {
                 </>
             )}
         </AnimatePresence>
-    );
-};
+    )
+}
 
-export default Drawer;
+export default Drawer

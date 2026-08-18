@@ -1,20 +1,29 @@
-import { useState } from 'react'
 import Navbar from './Componenets/Navbar'
-import About from './Componenets/About'
+import Hero from './Componenets/Hero'
+import TechStrip from './Componenets/TechStrip'
+import WhatIBuild from './Componenets/WhatIBuild'
+import FeaturedWork from './Componenets/FeaturedWork'
+import EngineeringHighlights from './Componenets/EngineeringHighlights'
+import Experience from './Componenets/Experience'
 import Skills from './Componenets/Skills'
+import AboutSection from './Componenets/AboutSection'
+import Contact from './Componenets/Contact'
 import Footer from './Componenets/Footer'
-import Project from './Componenets/Project'
-import Contactsend from './Componenets/Contactsend'
 
 function App() {
   return (
-    <div className="bg-darkBg min-h-screen text-slate-300 font-sans selection:bg-neonBlue selection:text-black overflow-x-hidden w-full">
+    <div className="bg-surface-900 min-h-screen text-slate-300 font-sans selection:bg-accent-500/30 selection:text-white overflow-x-hidden w-full">
       <Navbar />
-      <main className="pt-5 flex flex-col gap-20 md:gap-32 pb-16 w-full items-center">
-        <About />
+      <main className="w-full">
+        <Hero />
+        <TechStrip />
+        <WhatIBuild />
+        <FeaturedWork />
+        {/* <EngineeringHighlights /> */}
+        <Experience />
         <Skills />
-        <Project />
-        <Contactsend />
+        <AboutSection />
+        <Contact />
       </main>
       <Footer />
     </div>
