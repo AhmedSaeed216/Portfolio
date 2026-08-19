@@ -9,7 +9,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="text-center md:text-left">
                         <p className="font-semibold text-white text-sm">
-                            ahmed<span className="text-accent-400">.</span>saeed
+                            Ahmed<span className="text-accent-400"> </span>Saeed
                         </p>
                         <p className="mt-1 text-xs text-slate-500">
                             &copy; {new Date().getFullYear()} Ahmed Saeed. All rights reserved.
